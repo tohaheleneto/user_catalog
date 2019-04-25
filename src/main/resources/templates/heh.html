@@ -5,6 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-heeeeeeeeeeeeeeeeeeee
+    <img th:src="@{'/' + ${user.pictureExtension}}">
+    <!--<img th:src="${user.pictureExtension}">-->
+    <p th:text="${user.firstName}"/>
+    <p th:text="${user.lastName}"/>
+    <p th:text="${user.login}"/>
 </body>
 </html>

@@ -10,5 +10,5 @@ import users.entity.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
-
+    User findByid(int id);
 }

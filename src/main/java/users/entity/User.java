@@ -1,18 +1,25 @@
 package users.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
+    private String login;
+    private String pictureExtension;
+
+    public String getPictureExtension() {
+        return pictureExtension;
+    }
+
+    public void setPictureExtension(String pictureExtension) {
+        this.pictureExtension = pictureExtension;
+    }
 
     public int getId() {
         return id;
@@ -30,16 +37,17 @@ public class User {
         this.login = login;
     }
 
-    private String login;
+
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String login) {
+    public User(String firstName, String lastName, String login, String pictureExtension) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
+        this.pictureExtension = pictureExtension;
     }
 
     public String getFirstName() {
@@ -65,6 +73,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", login='" + login + '\'' +
+                ", pictureExtension='" + pictureExtension + '\'' +
                 '}';
     }
 }

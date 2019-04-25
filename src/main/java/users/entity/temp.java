@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "mainUsers")
-public class mainUser {
+public class temp {
     @Id
     String login;
 
@@ -22,7 +22,7 @@ public class mainUser {
         return login;
     }
 
-    public mainUser(String login, String lastName, String surName, String DOB, String address, ArrayList role) {
+    public temp(String login, String lastName, String surName, String DOB, String address, ArrayList role) {
         this.login = login;
         LastName = lastName;
         SurName = surName;
@@ -31,7 +31,7 @@ public class mainUser {
         this.role = role;
     }
 
-    public mainUser() {
+    public temp() {
     }
 
     public void setLogin(String login) {
