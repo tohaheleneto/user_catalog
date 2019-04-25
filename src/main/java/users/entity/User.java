@@ -1,9 +1,17 @@
 package users.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Entity
 public class User {
+
+    public int getId() {
+        return id;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,43 +19,23 @@ public class User {
     private String firstName;
     private String lastName;
     private String login;
-    private String pictureExtension;
-
-    public String getPictureExtension() {
-        return pictureExtension;
-    }
-
-    public void setPictureExtension(String pictureExtension) {
-        this.pictureExtension = pictureExtension;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-
+    private String pictureName;
+    private String address;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dob;
+    private ArrayList<String> roles;
 
     public User() {
-
     }
 
-    public User(String firstName, String lastName, String login, String pictureExtension) {
+    public User(String firstName, String lastName, String login, String pictureName, String address, LocalDate dob, ArrayList<String> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
-        this.pictureExtension = pictureExtension;
+        this.pictureName = pictureName;
+        this.address = address;
+        this.dob = dob;
+        this.roles = roles;
     }
 
     public String getFirstName() {
@@ -66,14 +54,43 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", login='" + login + '\'' +
-                ", pictureExtension='" + pictureExtension + '\'' +
-                '}';
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPictureName() {
+        return pictureName;
+    }
+
+    public void setPictureName(String pictureName) {
+        this.pictureName = pictureName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public ArrayList<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(ArrayList<String> roles) {
+        this.roles = roles;
     }
 }

@@ -3,6 +3,12 @@ body {
     color: #444;
     font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
     text-shadow: 0 1px 0 #fff;
+
+}
+.pic{
+    float:left;
+    border-spacing:0px;
+    font-size: 20px;
 }
 
 strong {
@@ -20,7 +26,7 @@ table {
     font-size: 12px;
     line-height: 24px;
     margin: 30px auto;
-    text-align: left;
+    text-align: center;
     width: 95%;
 }
 

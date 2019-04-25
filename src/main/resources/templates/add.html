@@ -8,10 +8,12 @@
 <body>
 <form enctype="multipart/form-data" action="#" th:object="${user}" method="post">
     <div class="ss-item-required">
-        <p>FirstName: <input type="text" th:field="*{firstName}" /></p>
-        <p>LastName: <input type="text" th:field="*{lastName}" /></p>
-        <p>Login: <input type="text" th:field="*{login}" /></p>
-        <input type = "file" name = "imageFile">
+        <p>FirstName: <input type="text" required="required" th:field="*{firstName} " /></p>
+        <p>LastName: <input type="text" required="required" th:field="*{lastName}" /></p>
+        <p>Login: <input type="text" required="required" th:field="*{login}" /></p>
+        <p>Address: <input type="text" required="required" th:field="*{address}" /></p>
+        <p>DOB: <input type="date" required="required" th:field="*{dob}" /></p>
+        <input type = "file" required="required" name = "imageFile">
         <p><input type="submit" value="Submit" />
     </div>
 </form>
