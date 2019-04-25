@@ -1,0 +1,22 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1 th:text="${msg}"/>
+<form enctype="multipart/form-data" action="/add" method="post" th:object="${user}">
+    <div class="ss-item-required">
+        <p>FirstName: <input class="form-control" type="text" th:value="${prev.firstName}" required="required"  id="user" name="firstName"   /></p>
+        <p>LastName: <input class="form-control" type="text" required="required" th:value="${prev.lastName}" id="user" name="lastName" /></p>
+        <p>Login: <input class="form-control" type="text" required="required" th:value="${prev.login}" id="user" name="login"/></p>
+        <p>Address: <input class="form-control" type="text" required="required" th:value="${prev.address}"  id="user" name="address"/></p>
+        <p>DOB: <input class="form-control" type="date" required="required" th:value="${prev.dob}" id="user" name="dob"/></p>
+        <input type = "file" required="required" name = "imageFile">
+        <p><input type="submit" value="Submit" />
+    </div>
+</form>
+</body>
+</html>

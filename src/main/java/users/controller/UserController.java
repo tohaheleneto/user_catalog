@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import users.UserRepository;
 import users.entity.User;
 
@@ -32,6 +32,7 @@ public class UserController {
         return "add";
     }
 
+
     @GetMapping("/")
     public String table(Model model) {
         model.addAttribute("array",userRepository.findAll());
@@ -43,8 +44,15 @@ public class UserController {
         return "heh";
     }
 
+
     @PostMapping("/add")
     public String greetingSubmit(@ModelAttribute User user, Model model,@RequestParam ("imageFile") MultipartFile imageFile) {
+        if (userRepository.findByLogin(user.getLogin()) != null) {
+            model.addAttribute("prev", user);
+            model.addAttribute("user", new User());
+            model.addAttribute("msg", "Login Already Exist");
+            return "duplicate";
+        }
         try {
             byte[] bytes = imageFile.getBytes();
             String extension = imageFile.getOriginalFilename().substring(imageFile.getOriginalFilename().lastIndexOf("."));
@@ -68,26 +76,5 @@ public class UserController {
             registry.addResourceHandler("/images/**").addResourceLocations("file:images/");
         }
     }
-
-    /*@GetMapping("/file")
-    public String upload(Model model) {
-        model.addAttribute("user", new User());
-        return "file";
-    }
-    @PostMapping("/uploadImage")
-    public String uploadImage(@RequestParam ("imageFile") MultipartFile imageFile) {
-        String returnValue="";
-        String folder = "./photo/";
-        try {
-            byte[] bytes = imageFile.getBytes();
-            Path path = Paths.get(folder + imageFile.getOriginalFilename());
-            Files.createDirectories(path.getParent());
-            Files.write(path,bytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return returnValue;
-    }*/
-
 
 }

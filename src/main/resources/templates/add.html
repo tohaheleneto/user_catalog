@@ -8,7 +8,7 @@
 <body>
 <form enctype="multipart/form-data" action="#" th:object="${user}" method="post">
     <div class="ss-item-required">
-        <p>FirstName: <input type="text" required="required" th:field="*{firstName} " /></p>
+        <p>FirstName: <input type="text" required="required" th:field="*{firstName}" th:placeholder="${user.lastName}" /></p>
         <p>LastName: <input type="text" required="required" th:field="*{lastName}" /></p>
         <p>Login: <input type="text" required="required" th:field="*{login}" /></p>
         <p>Address: <input type="text" required="required" th:field="*{address}" /></p>
