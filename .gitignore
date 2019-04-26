@@ -4,3 +4,5 @@ lib/*
 target/*
 test.mv.db
 user_v20.iml
+images/*
+test.h2.mv.db
