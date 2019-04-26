@@ -22,9 +22,9 @@
   Login already exist,введённые данные (за исключением ролей и фото) сохранятся и их не нужно будет заполнять заново.
 4. при переходе по адресу localhost:8080/addRole открывается страница добавления ролей в "справочник"(отдельная таблица в базе данных) 
 <h2> Пример использования</h2>
-![Альтернативный текст](/home/anton/1.png)
-![Альтернативный текст](/home/anton/2.png)
-![Альтернативный текст](/home/anton/3.png)
-![Альтернативный текст](/home/anton/4.png)
-![Альтернативный текст](/home/anton/5.png)
-![Альтернативный текст](/home/anton/6.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/1.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/2.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/3.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/4.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/5.png)
+![Альтернативный текст](https://github.com/tohaheleneto/user_catalog/blob/master/6.png)
