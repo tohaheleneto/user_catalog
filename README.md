@@ -1,7 +1,8 @@
 # user_catalog
 <h2> Установка и сборка </h2>  
-Если у вас не установлен git - вы можете скачать его по ссылке: https://git-scm.com/downloads либо скачать zip архив репозитория
-Если у вас не установлен maven - скачайте его по ссылке: https://maven.apache.org/download.cgi
+Если у вас не установлен git - вы можете скачать его по ссылке: https://git-scm.com/downloads либо скачать zip архив репозитория  
+Если у вас не установлен maven - скачайте его по ссылке: https://maven.apache.org/download.cgi  
+
 1. откройте Command Prompt(с помощью сочетания клавиш Win + R откройте  "Run" затем введит "cmd" и нажмите enter) 
 2. склонируйте репозиторий с помощью команды git clone https://github.com/tohaheleneto/user_catalog.git 
 3. перейдите в созданный репозиторий 
