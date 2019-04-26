@@ -25,6 +25,13 @@ public class User {
     private LocalDate dob;
     private ArrayList<String> roles;
     private String additionalInfo;
+
+    public User(String firstName, String lastName, String login) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+    }
+
     public User() {
     }
 
