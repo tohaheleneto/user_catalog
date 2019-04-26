@@ -11,7 +11,7 @@ body
     margin: 20px 10px;
     height: 100%;
     display: grid;
-    grid-template-rows: 1f 1f;
+    grid-template-rows: 1fr;
     grid-template-columns: 100%;
 }
 .information_block
@@ -34,7 +34,7 @@ body
 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 50% 25% 25%;
 }
 .spans
 {
@@ -57,12 +57,20 @@ body
     width: 70%;
 
 }
-.information > .inputs > textarea
+.information > span
 {
     margin-left: 20px;
     margin-bottom: 20px;
     box-shadow: 5px 0 10px black;
-    height: 15px;
+    height: 30px;
+    border: gray;
+}
+.information > .inputs > span
+{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 0 10px black;
+    height: 30px;
     border: gray;
 }
 .additional_info
