@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import users.RoleRepository;
 import users.UserRepository;
+import users.entity.Role;
 import users.entity.User;
 
 import java.io.IOException;
@@ -26,9 +27,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
+
     @GetMapping("/add")
     public String userForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("selectableRoles",roleRepository.findAll());
         return "add";
     }
 
@@ -41,16 +46,25 @@ public class UserController {
     @GetMapping("/userPage")
     public String userPage(@RequestParam int id, Model model) {
         model.addAttribute("user",userRepository.findByid(id));
-        return "heh";
+        return "show";
+    }
+
+
+    @GetMapping("/addOnce")
+    public String addOnce(Model model) {
+        Role add = new Role("root2");
+        roleRepository.save(add);
+        return "table";
     }
 
 
     @PostMapping("/add")
-    public String greetingSubmit(@ModelAttribute User user, Model model,@RequestParam ("imageFile") MultipartFile imageFile) {
+    public String add(@ModelAttribute User user, Model model,@RequestParam ("imageFile") MultipartFile imageFile) {
         if (userRepository.findByLogin(user.getLogin()) != null) {
             model.addAttribute("prev", user);
             model.addAttribute("user", new User());
             model.addAttribute("msg", "Login Already Exist");
+            model.addAttribute("selectableRoles",roleRepository.findAll());
             return "duplicate";
         }
         try {

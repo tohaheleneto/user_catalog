@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Cute+Font');
+body
+{
+    background-color: darkgray;
+}
+.container
+{
+    font-family: 'Cute Font', cursive;
+    font-size: 20px;
+    color: white;
+    margin: 20px 10px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1f 1f;
+    grid-template-columns: 100%;
+}
+.information_block
+{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: #04b504;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px black;
+    border-radius: 20px;
+}
+.uf
+{
+    border: 3px solid gray;
+    margin: 50px 30%;
+    box-shadow: 0 0 10px black;
+    border-collapse: collapse;
+}
+.information
+{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.spans
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: right;
+}
+.information > .spans > span
+{
+    flex-direction: column;
+    margin-bottom: 13px;
+    text-decoration: underline;
+}
+.inputs
+{
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+    width: 70%;
+
+}
+.information > .inputs > textarea
+{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 0 10px black;
+    height: 15px;
+    border: gray;
+}
+.additional_info
+{
+    width: 100%;
+    height: 100%;
+    background: #04b504;
+    background: linear-gradient(top, #04b504 1%,#04b504 1%,#04b504 13%,#61c419 75%,#083808 100%);
+    background: linear-gradient(to bottom, #0f920f 1%,#0f920f 1%,#0f920f 13%,#61c419 75%,#045604 100%);
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+}
+.additional_info > p
+{
+    margin: 15px;
+}

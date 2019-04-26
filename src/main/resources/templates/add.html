@@ -14,6 +14,11 @@
         <p>Address: <input type="text" required="required" th:field="*{address}" /></p>
         <p>DOB: <input type="date" required="required" th:field="*{dob}" /></p>
         <input type = "file" required="required" name = "imageFile">
+        <div th:each="role : ${selectableRoles}">
+            <input type="checkbox" th:field="*{roles}" th:value="${role.name}">
+            <label th:text="${role.name}"/>
+        </div>
+        <textarea required="required" th:field = "*{additionalInfo}"/>
         <p><input type="submit" value="Submit" />
     </div>
 </form>

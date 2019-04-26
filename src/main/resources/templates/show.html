@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/show.css}">
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class="container">
+        <div class="information_block">
+            <img th:src="@{'/images/' + ${user.pictureName}}" th:width="400" th:height="400">
+            <div class="information">
+                <div class="spans"> <span>Login</span>
+                    <span>First name</span>
+                    <span>Last name</span>
+                    <span>Date of birthday</span>
+                    <span>Address</span>
+                    <span>Rolles</span>
+                </div>
+                <div class="inputs">
+                    <span th:text="${user.login}" />
+                    <span th:text="${user.firstName}" />
+                    <span th:text="${user.lastName}" />
+                    <span th:text="${user.dob}" />
+                    <span th:text="${user.address}" />
+                </div>
+            </div>
+        </div>
+        <div th:each="role : ${user.roles}">
+            <p th:text="${role}"/>
+        </div>
+        <div class="additional_info">
+            <textarea th:text="${user.additionalInfo}"/>
+        </div>
+    </div>
+
+</body>
+</html>

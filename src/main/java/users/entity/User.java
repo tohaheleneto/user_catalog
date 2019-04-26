@@ -24,17 +24,34 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private ArrayList<String> roles;
-
+    private String additionalInfo;
     public User() {
     }
 
-    public User(String firstName, String lastName, String login, String pictureName, String address, LocalDate dob, ArrayList<String> roles) {
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public User(String firstName, String lastName, String login, String pictureName, String address, LocalDate dob, ArrayList<String> roles, String additionalInfo) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
         this.pictureName = pictureName;
         this.address = address;
         this.dob = dob;
+        this.roles = roles;
+        this.additionalInfo = additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public ArrayList<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(ArrayList<String> roles) {
         this.roles = roles;
     }
 
@@ -86,11 +103,5 @@ public class User {
         this.dob = dob;
     }
 
-    public ArrayList<String> getRoles() {
-        return roles;
-    }
 
-    public void setRoles(ArrayList<String> roles) {
-        this.roles = roles;
-    }
 }
