@@ -49,15 +49,6 @@ public class UserController {
         return "show";
     }
 
-
-    @GetMapping("/addOnce")
-    public String addOnce(Model model) {
-        Role add = new Role("root2");
-        roleRepository.save(add);
-        return "table";
-    }
-
-
     @PostMapping("/add")
     public String add(@ModelAttribute User user, Model model,@RequestParam ("imageFile") MultipartFile imageFile) {
         if (userRepository.findByLogin(user.getLogin()) != null) {
