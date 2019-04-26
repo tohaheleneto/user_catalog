@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="information_block">
-            <img th:src="@{'/images/' + ${user.pictureName}}" th:width="400" th:height="400">
+            <img th:src="@{'/images/' + ${user.pictureName}}" >
             <div class="information">
                 <div class="spans"> <span>Login</span>
                     <span>First name</span>
@@ -23,8 +23,9 @@
                     <span th:text="${user.lastName}" />
                     <span th:text="${user.dob}" />
                     <span th:text="${user.address}" />
-                    <span th:each="role : ${user.roles}"/>
+                    <span th:each="role : ${user.roles}">
                         <p th:text="${role}"/>
+                    </span>
                 </div>
             </div>
         </div>

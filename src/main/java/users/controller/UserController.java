@@ -65,7 +65,7 @@ public class UserController {
             model.addAttribute("user", new User());
             model.addAttribute("msg", "Login Already Exist");
             model.addAttribute("selectableRoles",roleRepository.findAll());
-            return "duplicate";
+            return "userDuplicate";
         }
         try {
             byte[] bytes = imageFile.getBytes();
@@ -82,6 +82,8 @@ public class UserController {
         model.addAttribute("array",userRepository.findAll());
         return "redirect:/";
     }
+
+
 
     @Configuration
     public class AdditionalResourceWebConfiguration implements WebMvcConfigurer {

@@ -6,4 +6,5 @@ import users.entity.Role;
 
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Integer> {
+    Role findByName(String name);
 }

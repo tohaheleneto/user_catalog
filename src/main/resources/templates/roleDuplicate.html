@@ -1,0 +1,17 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${msg}"/>
+<form action="/addRole" th:object="${role}" method="post">
+    <div class="ss-item-required">
+        <p>Role: <input type="text" required="required" th:field="*{name}" /></p>
+        <p><input type="submit" value="Submit" />
+    </div>
+</form>
+</body>
+</html>

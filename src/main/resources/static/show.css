@@ -6,13 +6,14 @@ body
 .container
 {
     font-family: 'Cute Font', cursive;
-    font-size: 20px;
+    font-size: 35px;
     color: white;
     margin: 20px 10px;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 100%;
+
 }
 .information_block
 {
@@ -30,48 +31,41 @@ body
     box-shadow: 0 0 10px black;
     border-collapse: collapse;
 }
+
 .information
 {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 50% 25% 25%;
+    grid-template-columns: 50% 50%;
 }
-.spans
+span
 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    text-align: right;
 }
-.information > .spans > span
-{
-    flex-direction: column;
-    margin-bottom: 13px;
-    text-decoration: underline;
-}
-.inputs
-{
-    display: flex;
-    flex-direction: column;
-    vertical-align: center;
-    width: 70%;
 
+
+.information_block > img{
+    object-fit: contain;
+    max-width: 300px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
-.information > span
-{
-    margin-left: 20px;
-    margin-bottom: 20px;
-    box-shadow: 5px 0 10px black;
-    height: 30px;
-    border: gray;
+
+.spans{
+    margin-right: 20px;
+    text-align: right;
+    border-bottom: #333333;
 }
-.information > .inputs > span
-{
-    margin-left: 20px;
-    margin-bottom: 20px;
-    box-shadow: 5px 0 10px black;
-    height: 30px;
-    border: gray;
+
+.inputs{
+    text-align: left;
+    margin-left: 30px;
+}
+p{
+    margin: 0;
 }
 .additional_info
 {
@@ -83,7 +77,11 @@ body
     border-radius: 20px;
     box-shadow: 0 0 10px black;
 }
-.additional_info > p
+
+
+textarea
 {
-    margin: 15px;
+    background: none;
+    margin-top: 5px;
+    width: 100%;
 }
