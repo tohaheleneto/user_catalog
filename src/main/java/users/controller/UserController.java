@@ -68,6 +68,7 @@ public class UserController {
             userRepository.save(user);
             Files.createDirectories(path.getParent());
             Files.write(path,bytes);
+            model.addAttribute("msg", "User added successfully");
         } catch (IOException e) {
             e.printStackTrace();
         }

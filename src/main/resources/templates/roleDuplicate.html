@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="${msg}"/>
+<h1 th:if="msg" th:text="${msg}"></h1>
 <form action="/addRole" th:object="${role}" method="post">
     <div class="ss-item-required">
         <p>Role: <input type="text" required="required" th:field="*{name}" /></p>
