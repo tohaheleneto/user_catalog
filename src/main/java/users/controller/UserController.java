@@ -74,6 +74,16 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/deleteUser")
+    public String deleteUser() {
+        return "deleteUser";
+    }
+
+    @PostMapping("/deleteUser")
+    public String deleteRole(@RequestParam String userName) {
+        userRepository.delete(userRepository.findByLogin(userName));
+        return "redirect:/";
+    }
 
 
     @Configuration
@@ -83,5 +93,4 @@ public class UserController {
             registry.addResourceHandler("/images/**").addResourceLocations("file:images/");
         }
     }
-
 }

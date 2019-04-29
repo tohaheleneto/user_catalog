@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import users.RoleRepository;
 import users.entity.Role;
 
@@ -28,6 +29,17 @@ public class RoleController {
             return "roleDuplicate";
         }
         roleRepository.save(role);
+        return "redirect:/";
+    }
+
+    @GetMapping("/deleteRole")
+    public String deleteRole() {
+        return "deleteRole";
+    }
+
+    @PostMapping("/deleteRole")
+    public String deleteRole(@RequestParam String RoleName) {
+        roleRepository.delete(roleRepository.findByName(RoleName));
         return "redirect:/";
     }
 
