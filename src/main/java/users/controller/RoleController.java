@@ -21,7 +21,7 @@ public class RoleController {
         return "addRole";
     }
     @PostMapping("/addRole")
-    public String addRolePost(@ModelAttribute Role role,Model model) {
+    public String addRolePost(Model model,@ModelAttribute Role role) {
         if (roleRepository.findByName(role.getName()) != null)
         {
             model.addAttribute("msg","Role already exist");
@@ -29,7 +29,8 @@ public class RoleController {
             return "roleDuplicate";
         }
         roleRepository.save(role);
-        return "redirect:/";
+        model.addAttribute("msg","Role successfully added");
+        return "addRole";
     }
 
     @GetMapping("/deleteRole")
@@ -38,9 +39,15 @@ public class RoleController {
     }
 
     @PostMapping("/deleteRole")
-    public String deleteRole(@RequestParam String RoleName) {
-        roleRepository.delete(roleRepository.findByName(RoleName));
-        return "redirect:/";
+    public String deleteRole(Model model,@RequestParam String RoleName) {
+        Role role = roleRepository.findByName(RoleName);
+        if (role != null) {
+            model.addAttribute("msg","Role deleted successfully");
+            roleRepository.delete(role);
+        }
+        else
+            model.addAttribute("msg","No such role exists");
+        return "/deleteRole";
     }
 
 }

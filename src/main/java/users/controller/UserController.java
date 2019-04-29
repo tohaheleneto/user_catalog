@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import users.RoleRepository;
@@ -71,7 +72,7 @@ public class UserController {
             e.printStackTrace();
         }
         model.addAttribute("array",userRepository.findAll());
-        return "redirect:/";
+        return "add";
     }
 
     @GetMapping("/deleteUser")
@@ -80,9 +81,15 @@ public class UserController {
     }
 
     @PostMapping("/deleteUser")
-    public String deleteRole(@RequestParam String userName) {
-        userRepository.delete(userRepository.findByLogin(userName));
-        return "redirect:/";
+    public String deleteRole(Model model,@RequestParam String userName) {
+        User user= userRepository.findByLogin(userName);
+        if (user != null) {
+            userRepository.delete(user);
+            model.addAttribute("msg","User deleted successfully");
+        }
+        else
+            model.addAttribute("msg","No such user exists");
+        return "deleteUser";
     }
 
 

@@ -6,11 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<h1 th:if="msg" th:text="${msg}"></h1>
 <form action="#" th:object="${role}" method="post">
     <div class="ss-item-required">
         <p>Role: <input type="text" required="required" th:field="*{name}" /></p>
         <p><input type="submit" value="Submit" />
     </div>
 </form>
+<a href="/">Home page</a>
 </body>
 </html>

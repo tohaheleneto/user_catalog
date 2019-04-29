@@ -4,9 +4,11 @@
 </head>
 
 <body>
+<h1 th:if="msg" th:text="${msg}"></h1>
 <form action="#" method="post">
     <p>userName: <input type="text" name= "userName" required="required" /></p>
     <input type="submit" value="Submit" />
 </form>
+<a href="/">Home page</a>
 </body>
 </html>
