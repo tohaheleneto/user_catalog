@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import users.RoleRepository;
+import users.UserRepository;
 import users.entity.Role;
+import users.entity.User;
 
 @Controller
 public class RoleController {
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/addRole")
     public String addRolGet(Model model) {
@@ -42,6 +46,9 @@ public class RoleController {
     public String deleteRole(Model model,@RequestParam String RoleName) {
         Role role = roleRepository.findByName(RoleName);
         if (role != null) {
+            for (User user : userRepository.findAll()) {
+                user.getRoles().remove(role.getName());
+            }
             model.addAttribute("msg","Role deleted successfully");
             roleRepository.delete(role);
         }

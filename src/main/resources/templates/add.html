@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<h1 th:if="msg" th:text="${msg}"></h1>
 <form enctype="multipart/form-data" action="#" th:object="${user}" method="post">
     <div class="ss-item-required">
         <p>FirstName: <input type="text" required="required" th:field="*{firstName}" th:placeholder="${user.lastName}" /></p>
